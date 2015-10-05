@@ -27,3 +27,6 @@ c_light_purple="\033[1;35m"
 c_yellow="\033[1;33m"
 c_white="\033[1;37m"
 c_null="\033[0m"
+
+c_blink="\033[5m"
+c_bold="\033[1m"

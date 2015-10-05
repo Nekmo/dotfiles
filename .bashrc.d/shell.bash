@@ -71,7 +71,13 @@ parse_branch(){
     fi
 }
 
-PS1='\['"$c_host"'\][\u@\h\['"$c_path"'\] \w]$(parse_branch)$\['"$c_null"'\] ' # Coloreado PS1
+if [ `whoami` == 'root' ]; then
+    hash="${c_white}#"
+else
+    hash='$'
+fi
+
+PS1='\['"$c_host"'\][\u@\h\['"$c_path"'\] \w]$(parse_branch)'"$hash"'\['"$c_null"'\] ' # Coloreado PS1
 
 
 #-------------------------------------------------------------
