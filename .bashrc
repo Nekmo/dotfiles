@@ -2,6 +2,8 @@
 [ -z "$PS1" ] && return
 
 source .bashrc.d/colors.bash
+source .bashrc.d/help.bash
+source .bashrc.d/bash_utils.bash
 source .bashrc.d/systems.bash
 source .bashrc.d/shell.bash
 source .bashrc.d/apps.bash

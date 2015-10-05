@@ -53,6 +53,7 @@ alias ll='ls -lh --color=auto' # Mostrar en lista
 alias cr="cp -r" # copiar recursivamente
 alias grep='grep --color=auto' 
 
+
 ls1() {
   if [ -n "$1" ]; then
     ls -1 --color=auto "$1"; ls -1 -A  "$1" | echo -e "${c_dark_gray}# Archivos totales:${c_null} "`wc -l`;
@@ -60,6 +61,8 @@ ls1() {
     ls -1 --color=auto $1; ls -1 -A $1 | echo -e "${c_dark_gray}# Archivos totales:${c_null} "`wc -l`;
   fi
 }
+
+
 
 
 #-------------------------------------------------------------

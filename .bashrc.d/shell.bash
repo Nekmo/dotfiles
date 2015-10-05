@@ -1,6 +1,8 @@
 #-------------------------------------------------------------
 # Modificaciones del terminal:
 #-------------------------------------------------------------
+registerAssistanceSection "Opciones del terminal"
+
 complete -cf sudo # Habilitar tab tras sudo
 complete -cf man # Habilitar tab para man
 bind '"\e[A": history-search-backward'
@@ -63,14 +65,17 @@ HISTFILESIZE=50000
 # }
 
 parse_branch(){
-    branch=`git branch 2> /dev/null  | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'`
-    echo $branch;
+    branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'`
+    if [[ "$branch" ]]; then
+        echo " $branch";
+    fi
 }
 
-PS1='\['"$c_host"'\][\u@\h\['"$c_path"'\] \w$(parse_branch)]$\['"$c_null"'\] ' # Coloreado PS1
+PS1='\['"$c_host"'\][\u@\h\['"$c_path"'\] \w]$(parse_branch)$\['"$c_null"'\] ' # Coloreado PS1
 
 
 #-------------------------------------------------------------
 # Utilidades para terminal:
 #-------------------------------------------------------------
+registerAssistance "reload" "Recarga la terminal. Equivalente a source ~/.bashrc";
 alias reload="source ~/.bashrc"

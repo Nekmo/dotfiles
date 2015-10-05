@@ -1,6 +1,8 @@
 #-------------------------------------------------------------
 # Administración de dispositivos:
 #-------------------------------------------------------------
+registerAssistanceSection "Gestión de dispositivos"
+registerAssistance "pendrives-busy" "Comprobar qué pendrives están ocupados y qué impide el desmontaje.";
 pendrives-busy(){
     for dev in /sys/block/sd*
     do
@@ -21,6 +23,7 @@ pendrives-busy(){
     done
 }
 
+registerAssistance "pendrives-list" "Listar los pendrives disponibles en el sistema.";
 pendrives-list(){
     for dev in /sys/block/sd*
     do
@@ -41,4 +44,5 @@ pendrives-list(){
     done
 }
 
+registerAssistance "lsmnt" "Listar todos los puntos de montaje.";
 alias lsmnt='mount | column -t' # Listar dispositivos conectados
