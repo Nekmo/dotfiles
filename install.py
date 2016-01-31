@@ -43,7 +43,7 @@ def run_pull():
     update()
 
 def init():
-    # init_virtualenvs()
+    init_virtualenvs()
     # temp_gradale()
     import skel
     run_pull()
