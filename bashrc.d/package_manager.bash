@@ -3,7 +3,7 @@
 #-------------------------------------------------------------
 function restore_backup() {
     if [[ ! "$1" ]]; then
-        echo "Uso: P-restore '<nombre del archivo de respaldo.>'";
+        echo "Uso: P-restore '<nombre del archivo de respaldo>'";
         return
     fi
     pacman -S $(< "$1");
