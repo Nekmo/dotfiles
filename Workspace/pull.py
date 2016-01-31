@@ -53,7 +53,7 @@ def update_virtualenvs():
 
 
 def update():
-    # update_repositories()
+    update_repositories()
     update_virtualenvs()
 
 

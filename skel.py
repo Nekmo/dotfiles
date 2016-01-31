@@ -15,3 +15,4 @@ symlink(abspath('.bashrc'), '~/.bashrc')
 mkdir('~/Workspace')
 symlink(abspath('Workspace/pull.py'), '~/Workspace/pull.py')
 symlink(abspath('Workspace/repositories'), '~/Workspace/repositories')
+
