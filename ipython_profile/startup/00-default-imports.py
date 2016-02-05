@@ -7,5 +7,5 @@ import json
 import shutil
 try:
     import requests
-except Exception:
+except ImportError:
     pass

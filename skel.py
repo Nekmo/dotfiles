@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from os.path import abspath
 from gradale.components.nodes import symlink, cp, mkdir, bak_target_decorator, Node, File, Dir
+from gradale.components.processes import Run
 from gradale.utils.decorators import add_decorator
 # Definición de cómo se creará el árbol de directorios y archivos en home
 # (enlaces simbólicos, nuevos directorios, archivos copiados, etc.).
@@ -16,3 +17,10 @@ mkdir('~/Workspace')
 symlink(abspath('Workspace/pull.py'), '~/Workspace/pull.py')
 symlink(abspath('Workspace/repositories'), '~/Workspace/repositories')
 
+ipython_dir = Dir('~/.ipython/')
+if ipython_dir.exists():
+    profile = ipython_dir.sub('profile_default')
+    if not profile.exists():
+        Run(['ipython', 'profile', 'create'])
+    startup_dest = profile.sub('startup')
+    symlink(abspath('ipython_profile/startup'), startup_dest)
