@@ -164,7 +164,7 @@ def find_package_data(where='.', package='',
 # Lista de dependencias a instalar
 if os.path.exists(requirements_path):
     requirements = parse_requirements(requirements_path, session=uuid.uuid1())
-    install_requires = [str(ir.req) for ir in requirements if not not get_url(ir)]
+    install_requires = [str(ir.req) for ir in requirements if not get_url(ir)]
 else:
     install_requires = []
 

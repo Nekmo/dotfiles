@@ -28,3 +28,28 @@ function pypi-test(){
     fi
     python2 setup.py register -r "$repo"
 }
+
+function mkvenv(){
+    venv="$1";
+     if [ ! "$venv" ]; then
+        venv="venv";
+     fi
+    virtualenv -p /usr/bin/python "$venv";
+    source "$venv/bin/activate";
+}
+
+function mkvenv2(){
+    venv="$1";
+     if [ ! "$venv" ]; then
+        venv="venv";
+     fi
+    virtualenv -p /usr/bin/python2 "$venv";
+    source "$venv/bin/activate";
+}
+
+function destroy(){
+    venv="$VIRTUAL_ENV";
+    deactivate
+    rm -rf "$VIRTUAL_ENV";
+    echo "Destroying $venv";
+}
