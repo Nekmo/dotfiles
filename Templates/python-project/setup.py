@@ -21,7 +21,7 @@ EMAIL = 'contacto@nekmo.com'
 # Información del paquete
 PACKAGE_NAME = 'project_name'
 PACKAGE_DOWNLOAD_URL = ''  # .tar.gz
-URL = ''
+URL = ''  # Project url
 STATUS_LEVEL = 1  # 1:Planning 2:Pre-Alpha 3:Alpha 4:Beta 5:Production/Stable 6:Mature 7:Inactive
 KEYWORDS = []  # Palabras clave
 # https://github.com/github/choosealicense.com/tree/gh-pages/_licenses
@@ -46,7 +46,7 @@ PLATFORMS = [
     # 'android'
 ]
 ROOT_INCLUDE = ['requirements.txt', 'VERSION', 'LICENSE.txt']
-PYTHON_VERSIONS = ['2', '3']
+PYTHON_VERSIONS = ['2', '3']  # or ranges: 3.1-3.5, 2.6-3.4...
 
 ######## FIN DE LA CONFIGURACIÓN DEL PAQUTE ########
 
@@ -163,10 +163,12 @@ def find_package_data(where='.', package='',
 
 # Lista de dependencias a instalar
 if os.path.exists(requirements_path):
-    requirements = parse_requirements(requirements_path, session=uuid.uuid1())
-    install_requires = [str(ir.req) for ir in requirements if not get_url(ir)]
+    requirements = list(parse_requirements(requirements_path, session=uuid.uuid1()))
+    install_requires = [str(ir.req) for ir in requirements]
+    dependency_links = [get_url(ir) for ir in requirements if get_url(ir)]
 else:
     install_requires = []
+    dependency_links = []
 
 # Todos los módulos y submódulos a instalar (module, module.submodule, module.submodule2...)
 packages = find_packages(__dir__)
@@ -237,6 +239,7 @@ def frange(x, y, jump):
         yield x
         x += jump
 
+
 python_versions = []
 for version in PYTHON_VERSIONS:
     if '-' in version:
@@ -282,6 +285,7 @@ setup(
 
     provides=modules,
     install_requires=install_requires,
+    dependency_links=dependency_links,
 
     packages=packages,
     include_package_data=True,
