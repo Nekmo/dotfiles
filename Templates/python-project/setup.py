@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Package description
-"""
 from setuptools import setup, find_packages
 from pip.req import parse_requirements
 from distutils.util import convert_path
@@ -14,7 +12,13 @@ import uuid
 #  Configuración del paquete  #
 ###############################
 
-# Información del autor
+# Instrucciones:
+# 1. Rellene la información de esta sección.
+# 2. Incluya un archivo requirements.txt con las dependencias.
+# 3. Cambie el archivo LICENSE.txt por el de su licencia.
+# 4. Añada un archivo README o README.md, el cual se trata de la la descripción extendida.
+
+#  Información del autor
 AUTHOR = 'Nekmo'
 EMAIL = 'contacto@nekmo.com'
 
@@ -32,6 +36,9 @@ CLASSIFIERS = [
     # 'License :: OSI Approved :: BSD License',
 ]  # https://pypi.python.org/pypi?%3Aaction=list_classifiers
 NATURAL_LANGUAGE = 'Spanish'  # English...
+DESCRIPTION = """
+Package short description.
+"""
 
 # Requerido para la correcta instalación del paquete
 PLATFORMS = [
@@ -268,7 +275,7 @@ setup(
     name=PACKAGE_NAME,
     version=package_version,
 
-    description=__doc__,
+    description=DESCRIPTION,
     long_description=long_description,
 
     author=AUTHOR,
