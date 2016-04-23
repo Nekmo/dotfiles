@@ -21,3 +21,6 @@ source ~/dotfiles/bashrc.d/videos.bash
 source ~/dotfiles/bashrc.d/python.bash
 source ~/dotfiles/bashrc.d/custom.bash
 source ~/dotfiles/bashrc.d/hello.bash
+
+# added by travis gem
+[ -f /home/nekmo/.travis/travis.sh ] && source /home/nekmo/.travis/travis.sh

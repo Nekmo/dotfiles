@@ -16,7 +16,7 @@ import uuid
 # 1. Rellene la información de esta sección.
 # 2. Incluya un archivo requirements.txt con las dependencias.
 # 3. Cambie el archivo LICENSE.txt por el de su licencia.
-# 4. Añada un archivo README o README.md, el cual se trata de la la descripción extendida.
+# 4. Añada un archivo README, README.rst o README.md, el cual se trata de la la descripción extendida.
 
 #  Información del autor
 AUTHOR = 'Nekmo'
@@ -29,6 +29,7 @@ URL = ''  # Project url
 STATUS_LEVEL = 1  # 1:Planning 2:Pre-Alpha 3:Alpha 4:Beta 5:Production/Stable 6:Mature 7:Inactive
 KEYWORDS = []  # Palabras clave
 # https://github.com/github/choosealicense.com/tree/gh-pages/_licenses
+LICENSE = 'MIT'
 CLASSIFIERS = [
     # Common licenses
     'License :: OSI Approved :: MIT License',
@@ -62,8 +63,10 @@ __dir__ = os.path.abspath(os.path.dirname(__file__))
 
 # paths
 readme_path = os.path.join(__dir__, 'README')
-if not os.path.exists(readme_path):
-    readme_path = os.path.join(__dir__, 'README.md')
+for target in ['README.rst', 'README.md']:
+    if not os.path.exists(readme_path):
+        readme_path = os.path.join(__dir__, target)
+
 version_path = os.path.join(__dir__, 'VERSION')
 requirements_path = os.path.join(__dir__, 'requirements.txt')
 scripts_path = os.path.join(__dir__, 'scripts')
@@ -237,7 +240,7 @@ platforms_classifiers = {'linux': ('POSIX', 'Linux'), 'win': ('Microsoft', 'Wind
 for key, parts in platforms_classifiers.items():
     if not key in PLATFORMS:
         continue
-    CLASSIFIERS.append('Operating System :: {}'.format(' :: '.join(parts)))
+    CLASSIFIERS.append('Operating System :: {0}'.format(' :: '.join(parts)))
 
 
 # Añadir la versión de Python a los Classifiers
@@ -252,7 +255,7 @@ for version in PYTHON_VERSIONS:
     if '-' in version:
         version = version.split('-')
         if len(version) != 2:
-            raise ValueError('Invalid Python version range: {}'.format('-'.join(version)))
+            raise ValueError('Invalid Python version range: {0}'.format('-'.join(version)))
         version = list(map(float, version))
         version[1] += 0.1  # Para que frange incluya la última versión
         python_versions.extend(frange(version[0], version[1], 0.1))
@@ -270,6 +273,10 @@ for version in range(2, 4):
         python_versions.append('%i :: Only' % version)
         break
 CLASSIFIERS.extend(['Programming Language :: Python :: %s' % version for version in python_versions])
+CLASSIFIERS.extend([
+    'Natural Language :: {0}'.format(NATURAL_LANGUAGE),
+    'Development Status :: {0} - {1}'.format(STATUS_LEVEL, status_name),
+])
 
 setup(
     name=PACKAGE_NAME,
@@ -283,10 +290,8 @@ setup(
 
     url=URL,
 
-    classifiers=CLASSIFIERS.extend([
-        'Natural Language :: {}'.format(NATURAL_LANGUAGE),
-        'Development Status :: {} - {}'.format(STATUS_LEVEL, status_name),
-    ]),
+    license=LICENSE,
+    classifiers=CLASSIFIERS,
 
     platforms=PLATFORMS,
 

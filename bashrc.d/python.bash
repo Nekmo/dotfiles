@@ -19,7 +19,7 @@ function pypi(){
     python2 setup.py sdist upload -r "$repo"
 }
 
-function pypi-test(){
+function pypi-register(){
     repo=$1;
     if [ ! "$repo" ]; then
         repo="pypi"
