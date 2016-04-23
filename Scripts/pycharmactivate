@@ -1,0 +1,54 @@
+# http://stackoverflow.com/a/24092557
+# Usage: Add "/bin/bash --rcfile ~/dotfiles/Scripts/pycharmactivate" to File->Tools->Terminal in Pycharm
+
+ACTIVATERC=$(python2 -c 'import re
+import os
+from glob import glob
+
+try:
+  #sets Current Working Directory to _the_projects .idea folder
+  os.chdir(os.getcwd()+"/.idea")
+
+  #gets every file in the cwd and sets _the_projects iml file
+  for file in glob("*"):
+    if re.match("(.*).iml", file):
+      project_iml_file = file
+
+  #gets _the_virtual_env for _the_project
+  for line in open(project_iml_file):
+    env_name = re.findall("~/(.*)\" jdkType", line.strip())
+    # created or changed a virtual_env after project creation? this will be true
+    if env_name:
+      print env_name[0] + "/bin/activate"
+      break
+
+    inherited = re.findall("type=\"inheritedJdk\"", line.strip())
+    # set a virtual_env during project creation? this will be true
+    if inherited:
+      break
+
+  # find _the_virtual_env in misc.xml
+  if inherited:
+    for line in open("misc.xml").readlines():
+      env_at_project_creation = re.findall("\~/(.*)\" project-jdk", line.strip())
+      if env_at_project_creation:
+        print env_at_project_creation[0] + "/bin/activate"
+        break
+finally:
+  pass
+')
+
+if [ -r /etc/profile ] ; then . /etc/profile ; fi
+if [ -r "~/.bash_profile" ] ; then
+    . ~/.bash_profile
+elif [ -r ~/.bash_login ] ; then
+    . ~/.bash_login
+elif [ -r ~/.profile ] ; then
+    . ~/.profile
+elif [ -r ~/.bashrc ] ; then
+    . ~/.bashrc
+fi
+if [ "$ACTIVATERC" ] ; then
+    echo "Activating virtualenv."
+    . "$HOME/$ACTIVATERC" ;
+fi
