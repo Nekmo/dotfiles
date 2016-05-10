@@ -23,4 +23,4 @@ source ~/dotfiles/bashrc.d/custom.bash
 source ~/dotfiles/bashrc.d/hello.bash
 
 # added by travis gem
-[ -f /home/nekmo/.travis/travis.sh ] && source /home/nekmo/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
