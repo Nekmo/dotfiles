@@ -46,7 +46,7 @@ def init():
     # init_virtualenvs()
     temp_gradale()
     import skel
-    run_pull()
+    # run_pull()
 
 if __name__ == '__main__':
     init()
