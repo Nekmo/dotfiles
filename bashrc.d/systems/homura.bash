@@ -1,0 +1,1 @@
+c_host="\e[1;1m\e[38;5;141m"; # Morado brillante
