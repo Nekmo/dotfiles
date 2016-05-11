@@ -31,6 +31,8 @@ alias S-list="service-list"
 # Es necesario tener instalado bash-completion
 source /usr/share/bash-completion/completions/systemctl
 
+
+
 # Activamos el autocompletado manualmente para los S-*.
 __systemctl_complete(){
      local cur=${COMP_WORDS[COMP_CWORD]};
@@ -41,8 +43,7 @@ __systemctl_complete(){
 
 __systemctl_start_complete(){
     mode=--system;
-    comps=$( __get_startable_units $mode;
-                         __get_template_names $mode)
+    comps=$( __get_startable_units $mode;)
     __systemctl_complete
     return 0
 }
@@ -61,8 +62,7 @@ complete -F __systemctl_stop_complete S-stop
 
 __systemctl_restart_complete(){
     mode=--system;
-    comps=$( __get_restartable_units $mode;
-                         __get_template_names $mode)
+    comps=$( __get_restartable_units $mode;)
     __systemctl_complete
     return 0
 }
@@ -80,8 +80,7 @@ complete -F __systemctl_disable_complete S-disable
 
 __systemctl_enable_complete(){
     mode=--system;
-    comps=$( __get_disabled_units $mode;
-                        __get_template_names $mode)
+    comps=$( __get_disabled_units $mode;)
     __systemctl_complete
     return 0
 }
