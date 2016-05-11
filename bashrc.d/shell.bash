@@ -8,6 +8,20 @@ complete -cf man # Habilitar tab para man
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
+_ssh()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts=$(grep '^Host' ~/.ssh/config | grep -v '[?*]' | cut -d ' ' -f 2-)
+
+    COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
+    return 0
+}
+complete -F _ssh ssh
+
+
 # After each command, save and reload history
 export PROMPT_COMMAND="history -a ; ${PROMPT_COMMAND:-:}"
 
