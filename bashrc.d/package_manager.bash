@@ -9,6 +9,10 @@ function restore_backup() {
     pacman -S $(< "$1");
 }
 
+#list-packages() {
+#    for package in $(dpkg-query -f '${binary:Package}\n' -W); do for file in $(dpkg-query -L "$package"); do echo "$package: $file"; done; done
+#}
+
 alias P-update='yaourt -Syu --aur -y --noconfirm' # Sincronizar y actualizar sin preguntar
 alias P-install='yaourt -S' # Instalar el paquete o paquetes
 alias P-find='yaourt' # Buscar el paquete por nombre o regex
