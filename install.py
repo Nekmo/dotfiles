@@ -37,8 +37,8 @@ def temp_gradale():
     zip_path = os.path.join(tmp, 'gradale-{}.zip'.format(uuid))
     gradale_dir = os.path.join(tmp, GRADALE_DIR)
     urlretrieve(GRADALE_URL, zip_path)
-    zipfile.ZipFile(open(zip_path, 'rb')).extractall(tmp)
-    sys.path.append(gradale_dir)
+    zipfile.ZipFile(open(zip_path, 'rb')).extractall(gradale_dir)
+    sys.path.append(os.path.join(gradale_dir, 'gradale-master'))
 
 
 def clean():
