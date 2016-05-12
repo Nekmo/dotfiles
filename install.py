@@ -8,6 +8,8 @@ import zipfile
 
 from shutil import rmtree
 
+import shutil
+
 if sys.version_info >= (3, 0):
     from urllib.request import urlretrieve
 else:
@@ -37,6 +39,17 @@ def temp_gradale():
     sys.path.append(gradale_dir)
 
 
+def clean():
+    try:
+        os.remove('/tmp/gradale.zip')
+    except Exception:
+        pass
+    try:
+        shutil.rmtree('/tmp/gradale-master')
+    except Exception:
+        pass
+
+
 def run_pull():
     sys.path.append(os.path.expanduser('~/Workspace/'))
     from pull import update
@@ -47,6 +60,7 @@ def init():
     temp_gradale()
     import skel
     # run_pull()
+    clean()
 
 if __name__ == '__main__':
     init()
