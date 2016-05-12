@@ -9,3 +9,12 @@ _system="$HOME/dotfiles/bashrc.d/systems/${HOSTNAME}.bash"
 if [ -a "$_system" ]; then
 	source "$_system"
 fi
+
+distribution_id=`lsb_release -i -s`
+distribution_name=`lsb_release -d | awk '{ $1=""; sub(" ", ""); print }'`
+distribution_release=`lsb_release -r -s`
+distribution_codename=`lsb_release -c -s`
+
+if [[ $distribution_codename == 'n/a' ]]; then
+    distribution_codename=
+fi
