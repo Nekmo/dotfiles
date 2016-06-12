@@ -1,7 +1,7 @@
 #-------------------------------------------------------------
 # Estadísticas del sistema:
 #-------------------------------------------------------------
-alias topcmd="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head" # Top de comandos frecuentados.
+alias topcmd="history | awk '{a[\$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head" # Top de commandos frecuentados.
 alias df="df -h"
 alias top="htop"
 
