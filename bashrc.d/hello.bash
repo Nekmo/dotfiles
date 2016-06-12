@@ -9,8 +9,8 @@ uptime_now=`uptime | sed -r 's/,  [0-9]+ users.+//' | sed -r 's/.+ up //' | sed 
 if [[ $release_codename ]]; then
     _codename=" $release_codename"
 fi
-echo -e "Bienvenido a ${c_host}${HOSTNAME}${c_null} $distribution_name$_codename ${c_dark_gray}(Ver.${c_null} "`uname -r`" ${c_dark_gray}IP.${c_null} $IP${c_dark_gray}).${c_null}"
-echo -e "${c_dark_gray}RAM:${c_null} $rusedram/$rtotalram ${c_dark_gray}CPU:${c_null} "`cpupcnt`"% ${c_dark_gray}Uptime:${c_null} $uptime_now. Escriba ${c_dark_gray}Assistance${c_null} para ayuda."
+echo -e "Bienvenido a ${c_host}${HOSTNAME}${c_null} $distribution_name$_codename ${c_details}(Ver.${c_null} "`uname -r`" ${c_details}IP.${c_null} $IP${c_details}).${c_null}"
+echo -e "${c_details}RAM:${c_null} $rusedram/$rtotalram ${c_details}CPU:${c_null} "`cpupcnt`"% ${c_details}Uptime:${c_null} $uptime_now. Escriba ${c_details}Assistance${c_null} para ayuda."
 if [ `whoami` == 'root' ]; then
     echo -e "${c_bold}${c_yellow}Atención:${c_null}${c_bold} estás accediendo como super-usuario. ${c_yellow}Tenga precaución, amigo administrador.${c_null}"
 fi
