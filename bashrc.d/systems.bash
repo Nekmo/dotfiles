@@ -3,6 +3,7 @@
 #-------------------------------------------------------------
 c_host="$c_white";
 c_path="$c_light_blue"; # Color para el path por defecto
+c_details="$c_dark_gray";
 is_server=false;
 
 _system="$HOME/dotfiles/bashrc.d/systems/${HOSTNAME}.bash"
