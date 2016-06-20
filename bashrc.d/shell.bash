@@ -94,7 +94,7 @@ else
     hash='$'
 fi
 
-PS1='\['"$c_host"'\][\u@\h\['"$c_path"'\] \w]$(parse_branch)'"$hash"'\['"$c_null"'\] ' # Coloreado PS1
+PS1="\[$c_host\][\u@\h\[$c_path\] \w]"'$(parse_branch)'"$hash\[$c_null\] " # Coloreado PS1
 
 
 #-------------------------------------------------------------
