@@ -106,4 +106,4 @@ alias reload="source ~/.bashrc"
 #-------------------------------------------------------------
 # Thirdparty:
 #-------------------------------------------------------------
-source ~/dotfiles/bashrc.d/thirdparty/dirb.bash
+source "$DOTFILES_DIR/bashrc.d/thirdparty/dirb.bash"
