@@ -3,6 +3,7 @@
 #-------------------------------------------------------------
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_HOOK_DIR=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Workspace
 source /usr/bin/virtualenvwrapper.sh
 
