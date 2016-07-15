@@ -89,7 +89,7 @@ parse_branch(){
 }
 
 if [ `whoami` == 'root' ]; then
-    hash="${c_white}#"
+    hash="\[${c_white}\]#"
 else
     hash='$'
 fi
