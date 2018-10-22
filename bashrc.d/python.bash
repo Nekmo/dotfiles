@@ -17,7 +17,7 @@ function pypi(){
     elif [ "$repo" == "test" ]; then
         repo="pypitest"
     fi
-    python2 setup.py sdist upload -r "$repo"
+    python setup.py sdist upload -r "$repo"
 }
 
 function pypi-register(){
@@ -27,7 +27,7 @@ function pypi-register(){
     elif [ "$repo" == "test" ]; then
         repo="pypitest"
     fi
-    python2 setup.py register -r "$repo"
+    python setup.py register -r "$repo"
 }
 
 function mkvenv(){

@@ -24,7 +24,19 @@ source "$DOTFILES_DIR/bashrc.d/images.bash"
 source "$DOTFILES_DIR/bashrc.d/videos.bash"
 source "$DOTFILES_DIR/bashrc.d/python.bash"
 source "$DOTFILES_DIR/bashrc.d/custom.bash"
-source "$DOTFILES_DIR/bashrc.d/hello.bash"
+# TODO:
+# source "$DOTFILES_DIR/bashrc.d/hello.bash"
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+
+###-tns-completion-start-###
+if [ -f /home/nekmo/.tnsrc ]; then 
+    source /home/nekmo/.tnsrc 
+fi
+###-tns-completion-end-###
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+
+export PATH=$PATH:/home/nekmo/.gem/ruby/2.4.0/bin
