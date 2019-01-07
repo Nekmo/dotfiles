@@ -1,0 +1,6 @@
+new -s NEKMO
+neww
+neww
+neww
+neww "sudo -s"
+set -g set-titles-string "Nekmo"
