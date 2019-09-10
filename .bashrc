@@ -24,8 +24,7 @@ source "$DOTFILES_DIR/bashrc.d/images.bash"
 source "$DOTFILES_DIR/bashrc.d/videos.bash"
 source "$DOTFILES_DIR/bashrc.d/python.bash"
 source "$DOTFILES_DIR/bashrc.d/custom.bash"
-# TODO:
-# source "$DOTFILES_DIR/bashrc.d/hello.bash"
+source "$DOTFILES_DIR/bashrc.d/hello.bash"
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
