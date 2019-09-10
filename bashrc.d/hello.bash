@@ -2,7 +2,7 @@
 # Mensaje de Bienvenida:
 #-------------------------------------------------------------
 OS=`uname`
-IP=$(ip a s|sed -ne '/127.0.0.1/!{s/^[ \t]*inet[ \t]*\([0-9.]\+\)\/.*$/\1/p}')
+IP=$(ip a s|sed -ne '/127.0.0.1/!{s/^[ \t]*inet[ \t]*\([0-9.]\+\)\/.*$/\1/p}' | grep -v '192.168.' | head -n 1)
 rusedram=`free -m | awk 'NR==2{printf "%s", $3 }'`
 rtotalram="$($_CMD free -mt | grep Mem: | awk '{ print $2 "MB" }')"
 uptime_now=`uptime | sed -r 's/,  [0-9]+ users.+//' | sed -r 's/.+ up //' | sed -r 's/  / /'`
