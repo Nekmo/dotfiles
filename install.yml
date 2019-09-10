@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+  - name: Pull dotfiles repository
+    git:
+      repo: git@github.com:Nekmo/dotfiles.git
+      dest: '~/dotfiles'
+      accept_hostkey: yes
+      force: yes
+      recursive: no
+      track_submodules: no
+      version: master
+  - name: Install dotfiles in user
+    shell: make install
+    args:
+      chdir: ~/dotfiles/

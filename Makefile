@@ -14,5 +14,7 @@ install:
 	ln -s "${PWD}/ipython_profile" "${HOME}/.ipython/profile_default"
 	mv "${HOME}/.bashrc" "${HOME}/.bashrc.bak" 2> /dev/null || echo -n
 	ln -s "${PWD}/.bashrc" "${HOME}/.bashrc"
+	mv "${HOME}/bashrc.d" "${HOME}/bashrc.d.bak" 2> /dev/null || echo -n
+	ln -s "${PWD}/bashrc.d" "${HOME}/bashrc.d"
 	@echo
 	@echo "Installed dotfiles in ${HOME}"
