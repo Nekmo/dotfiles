@@ -30,8 +30,8 @@ source "$DOTFILES_DIR/bashrc.d/hello.bash"
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 ###-tns-completion-start-###
-if [ -f /home/nekmo/.tnsrc ]; then 
-    source /home/nekmo/.tnsrc 
+if [ -f /home/nekmo/.tnsrc ]; then
+    source /home/nekmo/.tnsrc
 fi
 ###-tns-completion-end-###
 
@@ -45,4 +45,7 @@ if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
     tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
 fi
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+if [ "$SSH_CONNECTION" == "" ]; then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
+
