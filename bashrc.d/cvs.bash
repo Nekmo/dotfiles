@@ -1,20 +1,7 @@
-
-#-------------------------------------------------------------
-# Aliases para Mercurial:
-#-------------------------------------------------------------
-registerAssistanceSection "*CVS* Mercurial"
-registerAssistance "hs" "Mostrar estado del repositorio mercurial";
-alias hs='hg status'
-registerAssistance "hpu" "Hacer hg pull -u: Traer cambios y aplicar";
-alias hpu='hg pull -u'
-registerAssistance "hc" "Hacer hg commit -Am: Hacer commit con mensaje y añadiendo archivos.";
-alias hc='hg commit -Am'
-
-
 #-------------------------------------------------------------
 # Aliases para Git:
 #-------------------------------------------------------------
-registerAssistanceSection "*CVS* Git"
+registerAssistanceSection "CVS Git"
 registerAssistance "gs" "Git status. Estado de repositorio";
 alias gs='git status'
 registerAssistance "gs" "Git push origin. Hacer el push al servidor de arriba";
