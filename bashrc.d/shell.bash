@@ -102,8 +102,3 @@ PS1="\[$c_host\][\u@\h$host_extra\[$c_path\] \w]"'$(parse_branch)'"$hash\[$c_nul
 #-------------------------------------------------------------
 registerAssistance "reload" "Recarga la terminal. Equivalente a source ~/.bashrc";
 alias reload="source ~/.bashrc"
-
-#-------------------------------------------------------------
-# Thirdparty:
-#-------------------------------------------------------------
-source "$DOTFILES_DIR/bashrc.d/thirdparty/dirb.bash"
